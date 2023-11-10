@@ -1,0 +1,357 @@
+apiVersion: v1
+entries:
+  apicurio-registry:
+  - annotations:
+      artifacthub.io/crds: |
+        - kind: Artifact
+          version: v1
+          name: artifact
+          displayName: Artifact
+          description: Description of registry artifact
+      artifacthub.io/crdsExamples: |
+        - apiVersion: artifact.apicur.io/v1alpha1
+          kind: Artifact
+          metadata:
+            name: pets-avro-example-v1
+          spec:
+            artifactId: pets-avro-record
+            name: pets-avro
+            description: "super pets avro"
+            type: AVRO
+            state: ENABLED
+            content: |
+              {"namespace": "example.avro",
+               "type": "record",
+               "name": "Pet",
+               "fields": [
+                   {"name": "name", "type": "string"},
+                   {"name": "holderId",  "type": ["int", "null"]},
+                   {"name": "type", "type": ["string", "null"]}
+               ]
+              }
+      artifacthub.io/links: |
+        - name: Apicurio Registry Site
+          url: https://www.apicur.io/registry/
+        - name: Apicurio Registry source
+          url: https://github.com/apicurio/apicurio-registry
+        - name: Apicurio Registry content sync source
+          url: https://github.com/Apicurio/apicurio-registry-content-sync-operator
+    apiVersion: v2
+    appVersion: 2.3.1
+    created: "2023-11-11T00:47:03.327998+09:00"
+    description: Install and configure Apicurio Registry in Kubernetes.
+    digest: d6a57b326d097c22fc9fa903c00935f9b657a7d0f0b0dc1b3b668a6d7f923315
+    home: https://github.com/eshepelyuk/apicurio-registry-helm
+    icon: https://design.jboss.org/apicurio/logo/logofiles/apicurio_icon_lightbkg_color.svg
+    keywords:
+    - apicurio
+    - schema-registry
+    - kafka
+    - kubernetes
+    - ui
+    - streaming
+    - openapi
+    - asyncapi
+    - swagger
+    maintainers:
+    - email: eshepelyuk@gmail.com
+      name: Ievgenii Shepeliuk
+      url: https://github.com/eshepelyuk
+    name: apicurio-registry
+    type: application
+    urls:
+    - apicurio-registry-2.1.0.tgz
+    version: 2.1.0
+  artifact-hub:
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: security
+          description: Do not follow symlinks when reading certain files
+        - kind: security
+          description: Disable unsafe rego built-ins
+        - kind: security
+          description: Improve Docker Hub registry check
+        - kind: added
+          description: Optional custom labels for some resources in chart
+        - kind: changed
+          description: Bump Go to 1.21.1
+        - kind: changed
+          description: Upgrade backend and frontend dependencies
+        - kind: fixed
+          description: Issue in API documentation
+      artifacthub.io/containsSecurityUpdates: "true"
+      artifacthub.io/images: |
+        - name: db-migrator
+          image: artifacthub/db-migrator:v1.16.0
+        - name: hub
+          image: artifacthub/hub:v1.16.0
+        - name: tracker
+          image: artifacthub/tracker:v1.16.0
+        - name: scanner
+          image: artifacthub/scanner:v1.16.0
+        - name: trivy
+          image: aquasec/trivy:0.44.1
+      artifacthub.io/links: |
+        - name: source
+          url: https://github.com/artifacthub/hub
+        - name: support
+          url: https://github.com/artifacthub/hub/issues
+      artifacthub.io/screenshots: |
+        - title: Home page
+          url: https://artifacthub.github.io/hub/screenshots/screenshot1.jpg
+        - title: Packages search
+          url: https://artifacthub.github.io/hub/screenshots/screenshot2.jpg
+        - title: Package details
+          url: https://artifacthub.github.io/hub/screenshots/screenshot3.jpg
+        - title: Security report
+          url: https://artifacthub.github.io/hub/screenshots/screenshot4.jpg
+        - title: Values schema
+          url: https://artifacthub.github.io/hub/screenshots/screenshot5.jpg
+        - title: Changelog
+          url: https://artifacthub.github.io/hub/screenshots/screenshot6.jpg
+    apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-11-11T00:47:03.330683+09:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.helm.sh/stable
+      version: 8.2.1
+    description: Artifact Hub is a web-based application that enables finding, installing,
+      and publishing Kubernetes packages.
+    digest: 227f56313645a66d99389c5a18af408a9f95d4f5b096b9c72ea9fe0a0fc803ec
+    home: https://artifacthub.io
+    icon: https://artifacthub.github.io/helm-charts/logo.png
+    keywords:
+    - kubernetes
+    - helm
+    - falco
+    - opa
+    - olm
+    - tinkerbell actions
+    - krew
+    - tekton
+    - keda scalers
+    - coredns
+    - keptn
+    - containers images
+    - kubewarden
+    - gatekeeper
+    - kyverno
+    - knative
+    - backstage
+    - argo
+    - kubearmor
+    kubeVersion: '>= 1.19.0-0'
+    maintainers:
+    - email: tegioz@icloud.com
+      name: Sergio
+    - email: cynthiasg@icloud.com
+      name: Cintia
+    - email: matt@mattfarina.com
+      name: Matt
+    name: artifact-hub
+    type: application
+    urls:
+    - artifact-hub-1.16.0.tgz
+    version: 1.16.0
+  kubeclarity:
+  - apiVersion: v2
+    appVersion: v2.13.0
+    created: "2023-11-11T00:47:03.334766+09:00"
+    dependencies:
+    - alias: kubeclarity-postgresql
+      condition: kubeclarity-postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.9.13
+    - alias: kubeclarity-trivy-server
+      condition: kubeclarity-trivy-server.enabled
+      name: trivy
+      repository: https://aquasecurity.github.io/helm-charts
+      version: 0.4.17
+    description: Charts for KubeClarity deployment.
+    digest: 0f4768eab4097e340d437ea209ee8e35f239e58ade52fcd3f661fb9cb4b0e316
+    home: https://github.com/openclarity/kubeclarity
+    icon: https://github.com/openclarity/kubeclarity/raw/main/images/kubeclarity-logo.png
+    maintainers:
+    - name: KubeClarity
+      url: https://github.com/openclarity/kubeclarity
+    name: kubeclarity
+    sources:
+    - https://github.com/openclarity/kubeclarity
+    type: application
+    urls:
+    - kubeclarity-v2.13.0.tgz
+    version: v2.13.0
+  opendistro-es:
+  - apiVersion: v1
+    appVersion: 1.13.3
+    created: "2023-11-11T00:47:03.335964+09:00"
+    description: Open Distro for Elasticsearch
+    digest: f95fa7a3b8e8d39ddab5d9e7bd7526ce6ddc4101e5d6a2b5c36b0c794912ffdc
+    kubeVersion: ^1.10.0-0
+    maintainers:
+    - email: derek.heldt-werle@viasat.com
+      name: Derek Heldt-Werle
+    - email: kalvin.chau@viasat.com
+      name: Kalvin Chau
+    name: opendistro-es
+    sources:
+    - https://pages.git.viasat.com/ATG/charts
+    urls:
+    - opendistro-es-1.13.3.tgz
+    version: 1.13.3
+  operator:
+  - apiVersion: v2
+    appVersion: v5.0.10
+    created: "2023-11-11T00:47:03.337197+09:00"
+    description: A Helm chart for MinIO Operator
+    digest: 36b14f637652b9982dd191764ec82a211ec0b7608163d838a822958cf763000b
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - storage
+    - object-storage
+    - S3
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: operator
+    sources:
+    - https://github.com/minio/operator
+    type: application
+    urls:
+    - operator-5.0.10.tgz
+    version: 5.0.10
+  rundeck:
+  - apiVersion: v1
+    appVersion: 3.2.7
+    created: "2023-11-11T00:47:03.337918+09:00"
+    deprecated: true
+    description: DEPRECATED A Rundeck chart for Kubernetes
+    digest: 2215bc14d5bc02833af9c859121b58d30141a5e121dcbd7dead8453fb3aa48d3
+    home: https://github.com/rundeck/rundeck
+    keywords:
+    - rundeck
+    - jobs
+    - automation
+    - operations
+    name: rundeck
+    sources:
+    - https://github.com/rundeck/rundeck
+    urls:
+    - rundeck-0.3.6.tgz
+    version: 0.3.6
+  skywalking-helm:
+  - apiVersion: v2
+    created: "2023-11-11T00:47:03.342952+09:00"
+    dependencies:
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: https://helm.elastic.co/
+      version: ~7.17.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+      version: 12.1.2
+    description: Helm Chart for Apache SkyWalking
+    digest: 49ee8a8a01049cd05388f6d703b1392b18c96ba285067fdc8246c266f46cff60
+    home: https://skywalking.apache.org
+    icon: https://raw.githubusercontent.com/apache/skywalking-kubernetes/master/logo/sw-logo-for-chart.jpg
+    maintainers:
+    - email: hanahmily@gmail.com
+      name: hanahmily
+    - email: innerpeace.zhai@gmail.com
+      name: innerpeacez
+    - email: kezhenxu94@163.com
+      name: kezhenxu94
+    name: skywalking-helm
+    sources:
+    - https://github.com/apache/skywalking-kubernetes
+    urls:
+    - skywalking-helm-4.4.0.tgz
+    version: 4.4.0
+  temporal:
+  - apiVersion: v2
+    appVersion: 1.20.2
+    created: "2023-11-11T00:47:03.349625+09:00"
+    dependencies:
+    - condition: cassandra.enabled
+      name: cassandra
+      repository: https://charts.helm.sh/incubator
+      version: 0.14.3
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 15.1.3
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: https://helm.elastic.co
+      version: 7.17.3
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 5.0.10
+    description: Temporal is a distributed, scalable, durable, and highly available
+      orchestration engine to execute asynchronous long-running business logic in
+      a scalable and resilient way.
+    digest: c9d2443a93eb27b5d4b03b09286ec4eb9cca633959d55af5b9929e7d90ec6248
+    home: https://temporal.io/
+    keywords:
+    - temporal
+    - workflow
+    - orchestration
+    maintainers:
+    - name: Temporal Technologies Inc.
+      url: https://temporal.io/
+    name: temporal
+    sources:
+    - https://github.com/temporalio/temporal
+    type: application
+    urls:
+    - temporal-0.22.0.tgz
+    version: 0.22.0
+  tyk-oss:
+  - annotations:
+      artifacthub.io/category: networking
+      artifacthub.io/links: |
+        - name: docs
+          url: https://tyk.io/docs/
+        - name: support
+          url: https://community.tyk.io/
+    apiVersion: v2
+    created: "2023-11-11T00:47:03.351576+09:00"
+    dependencies:
+    - name: tyk-gateway
+      repository: file://../components/tyk-gateway
+      version: 1.1.0
+    - condition: global.components.pump
+      name: tyk-pump
+      repository: file://../components/tyk-pump
+      version: 1.1.0
+    description: 'A Helm chart for deploying the Tyk Open Source stack. It includes
+      the Tyk Gateway, an open source Enterprise API Gateway, supporting REST, GraphQL,
+      TCP and gRPC protocols; and Tyk Pump, an analytics purger that moves the data
+      generated by your Tyk gateways to any back-end. '
+    digest: bc660c84d26a398cbeb10566af444ff9bc7ff4a43ff7b6e39caf855b5e87dc1a
+    home: https://tyk.io/
+    keywords:
+    - api gateway
+    - reverse proxy
+    - api management
+    - ingress
+    - ingress controller
+    - open source gateway
+    - edge gateway
+    - tyk
+    - tyk gateway
+    - tyk open source
+    name: tyk-oss
+    sources:
+    - https://github.com/TykTechnologies/tyk-charts/tree/main/tyk-oss
+    type: application
+    urls:
+    - tyk-oss-1.1.0.tgz
+    version: 1.1.0
+generated: "2023-11-11T00:47:03.327019+09:00"
