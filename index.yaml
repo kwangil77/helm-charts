@@ -38,7 +38,7 @@ entries:
           url: https://github.com/Apicurio/apicurio-registry-content-sync-operator
     apiVersion: v2
     appVersion: 2.3.1
-    created: "2023-11-11T00:51:32.635466+09:00"
+    created: "2023-11-11T00:53:33.501304+09:00"
     description: Install and configure Apicurio Registry in Kubernetes.
     digest: d6a57b326d097c22fc9fa903c00935f9b657a7d0f0b0dc1b3b668a6d7f923315
     home: https://github.com/eshepelyuk/apicurio-registry-helm
@@ -111,7 +111,7 @@ entries:
           url: https://artifacthub.github.io/hub/screenshots/screenshot6.jpg
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-11-11T00:51:32.637955+09:00"
+    created: "2023-11-11T00:53:33.504835+09:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -158,7 +158,7 @@ entries:
   boundary:
   - apiVersion: v2
     appVersion: 0.7.3
-    created: "2023-11-11T00:51:32.638659+09:00"
+    created: "2023-11-11T00:53:33.505508+09:00"
     description: A Helm chart for deploying Boundary.
     digest: c700a1b64246a6db2f30b35bdb7024d2e035ee1e078e55444790c4adf5891dc2
     home: https://boundaryproject.io/
@@ -177,7 +177,7 @@ entries:
   kubeclarity:
   - apiVersion: v2
     appVersion: v2.13.0
-    created: "2023-11-11T00:51:32.643243+09:00"
+    created: "2023-11-11T00:53:33.509566+09:00"
     dependencies:
     - alias: kubeclarity-postgresql
       condition: kubeclarity-postgresql.enabled
@@ -206,7 +206,7 @@ entries:
   opendistro-es:
   - apiVersion: v1
     appVersion: 1.13.3
-    created: "2023-11-11T00:51:32.644573+09:00"
+    created: "2023-11-11T00:53:33.51146+09:00"
     description: Open Distro for Elasticsearch
     digest: f95fa7a3b8e8d39ddab5d9e7bd7526ce6ddc4101e5d6a2b5c36b0c794912ffdc
     kubeVersion: ^1.10.0-0
@@ -224,7 +224,7 @@ entries:
   operator:
   - apiVersion: v2
     appVersion: v5.0.10
-    created: "2023-11-11T00:51:32.645599+09:00"
+    created: "2023-11-11T00:53:33.512611+09:00"
     description: A Helm chart for MinIO Operator
     digest: 36b14f637652b9982dd191764ec82a211ec0b7608163d838a822958cf763000b
     home: https://min.io
@@ -246,7 +246,7 @@ entries:
   rundeck:
   - apiVersion: v1
     appVersion: 3.2.7
-    created: "2023-11-11T00:51:32.646377+09:00"
+    created: "2023-11-11T00:53:33.513288+09:00"
     deprecated: true
     description: DEPRECATED A Rundeck chart for Kubernetes
     digest: 2215bc14d5bc02833af9c859121b58d30141a5e121dcbd7dead8453fb3aa48d3
@@ -265,7 +265,7 @@ entries:
   schema-registry:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-11-11T00:51:32.647051+09:00"
+    created: "2023-11-11T00:53:33.513857+09:00"
     description: A Helm chart for deploying Schema Registry.
     digest: 7e2211d450bddbac9d499af9dff494473d6a59ba38ff16d6113e0b43669622c0
     home: https://github.com/hortonworks/registry
@@ -281,9 +281,56 @@ entries:
     urls:
     - schema-registry-0.0.1.tgz
     version: 0.0.1
+  sentry:
+  - apiVersion: v2
+    appVersion: 22.11.0
+    created: "2023-11-11T00:53:33.533985+09:00"
+    dependencies:
+    - condition: sourcemaps.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.1.5
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.12.1
+    - condition: kafka.enabled
+      name: kafka
+      repository: https://raw.githubusercontent.com/bitnami/charts/pre-2022/bitnami
+      version: 16.3.2
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: https://sentry-kubernetes.github.io/charts
+      version: 3.2.0
+    - condition: zookeeper.enabled
+      name: zookeeper
+      repository: https://raw.githubusercontent.com/bitnami/charts/pre-2022/bitnami
+      version: 9.0.0
+    - alias: rabbitmq
+      condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://raw.githubusercontent.com/bitnami/charts/pre-2022/bitnami
+      version: 8.32.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://raw.githubusercontent.com/bitnami/charts/pre-2022/bitnami
+      version: 10.16.2
+    - condition: nginx.enabled
+      name: nginx
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.0.4
+    description: A Helm chart for Kubernetes
+    digest: cac2d7f7a466c327137c56e51bebd13f3f3f70d83e13df4c3e024944c9a2af90
+    maintainers:
+    - name: sentry-kubernetes
+    name: sentry
+    type: application
+    urls:
+    - sentry-17.10.1.tgz
+    version: 17.10.1
   skywalking-helm:
   - apiVersion: v2
-    created: "2023-11-11T00:51:32.651875+09:00"
+    created: "2023-11-11T00:53:33.539818+09:00"
     dependencies:
     - condition: elasticsearch.enabled
       name: elasticsearch
@@ -313,7 +360,7 @@ entries:
   sourcegraph:
   - apiVersion: v2
     appVersion: 3.29.0
-    created: "2023-11-11T00:51:32.65257+09:00"
+    created: "2023-11-11T00:53:33.54047+09:00"
     description: A Helm chart for deploying SourceGraph.
     digest: e5a5a5c430b1e03b75b8fb8b099aa50cde1a5685c7e9533748bc2a1195ca090e
     home: https://about.sourcegraph.com/
@@ -332,7 +379,7 @@ entries:
   temporal:
   - apiVersion: v2
     appVersion: 1.20.2
-    created: "2023-11-11T00:51:32.660711+09:00"
+    created: "2023-11-11T00:53:33.547149+09:00"
     dependencies:
     - condition: cassandra.enabled
       name: cassandra
@@ -378,7 +425,7 @@ entries:
         - name: support
           url: https://community.tyk.io/
     apiVersion: v2
-    created: "2023-11-11T00:51:32.663295+09:00"
+    created: "2023-11-11T00:53:33.549268+09:00"
     dependencies:
     - name: tyk-gateway
       repository: file://../components/tyk-gateway
@@ -411,4 +458,4 @@ entries:
     urls:
     - tyk-oss-1.1.0.tgz
     version: 1.1.0
-generated: "2023-11-11T00:51:32.634741+09:00"
+generated: "2023-11-11T00:53:33.50049+09:00"
