@@ -38,7 +38,7 @@ entries:
           url: https://github.com/Apicurio/apicurio-registry-content-sync-operator
     apiVersion: v2
     appVersion: 2.3.1
-    created: "2023-11-11T00:53:33.501304+09:00"
+    created: "2023-11-13T15:14:41.841101+09:00"
     description: Install and configure Apicurio Registry in Kubernetes.
     digest: d6a57b326d097c22fc9fa903c00935f9b657a7d0f0b0dc1b3b668a6d7f923315
     home: https://github.com/eshepelyuk/apicurio-registry-helm
@@ -111,7 +111,7 @@ entries:
           url: https://artifacthub.github.io/hub/screenshots/screenshot6.jpg
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-11-11T00:53:33.504835+09:00"
+    created: "2023-11-13T15:14:41.845033+09:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -158,7 +158,7 @@ entries:
   boundary:
   - apiVersion: v2
     appVersion: 0.7.3
-    created: "2023-11-11T00:53:33.505508+09:00"
+    created: "2023-11-13T15:14:41.845677+09:00"
     description: A Helm chart for deploying Boundary.
     digest: c700a1b64246a6db2f30b35bdb7024d2e035ee1e078e55444790c4adf5891dc2
     home: https://boundaryproject.io/
@@ -177,7 +177,7 @@ entries:
   kubeclarity:
   - apiVersion: v2
     appVersion: v2.13.0
-    created: "2023-11-11T00:53:33.509566+09:00"
+    created: "2023-11-13T15:14:41.849644+09:00"
     dependencies:
     - alias: kubeclarity-postgresql
       condition: kubeclarity-postgresql.enabled
@@ -203,10 +203,39 @@ entries:
     urls:
     - kubeclarity-v2.13.0.tgz
     version: v2.13.0
+  nexus-repository-manager:
+  - apiVersion: v2
+    appVersion: 3.62.0
+    created: "2023-11-13T15:14:41.850447+09:00"
+    description: Sonatype Nexus Repository Manager - Universal Binary repository
+    digest: 88f65e46c00a34eae7226870a673b648f83b18ba29596d548f536a5e32fa288a
+    home: https://www.sonatype.com/nexus-repository-oss
+    icon: https://sonatype.github.io/helm3-charts/NexusRepo_Vertical.svg
+    keywords:
+    - artifacts
+    - dependency
+    - management
+    - sonatype
+    - nexus
+    - repository
+    - quickstart
+    - ci
+    - repository-manager
+    - nexus3
+    maintainers:
+    - email: support@sonatype.com
+      name: Sonatype
+    name: nexus-repository-manager
+    sources:
+    - https://github.com/sonatype/nexus-public
+    type: application
+    urls:
+    - nexus-repository-manager-62.0.0.tgz
+    version: 62.0.0
   opendistro-es:
   - apiVersion: v1
     appVersion: 1.13.3
-    created: "2023-11-11T00:53:33.51146+09:00"
+    created: "2023-11-13T15:14:41.851623+09:00"
     description: Open Distro for Elasticsearch
     digest: f95fa7a3b8e8d39ddab5d9e7bd7526ce6ddc4101e5d6a2b5c36b0c794912ffdc
     kubeVersion: ^1.10.0-0
@@ -224,7 +253,7 @@ entries:
   operator:
   - apiVersion: v2
     appVersion: v5.0.10
-    created: "2023-11-11T00:53:33.512611+09:00"
+    created: "2023-11-13T15:14:41.853216+09:00"
     description: A Helm chart for MinIO Operator
     digest: 36b14f637652b9982dd191764ec82a211ec0b7608163d838a822958cf763000b
     home: https://min.io
@@ -246,7 +275,7 @@ entries:
   rundeck:
   - apiVersion: v1
     appVersion: 3.2.7
-    created: "2023-11-11T00:53:33.513288+09:00"
+    created: "2023-11-13T15:14:41.853848+09:00"
     deprecated: true
     description: DEPRECATED A Rundeck chart for Kubernetes
     digest: 2215bc14d5bc02833af9c859121b58d30141a5e121dcbd7dead8453fb3aa48d3
@@ -265,7 +294,7 @@ entries:
   schema-registry:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-11-11T00:53:33.513857+09:00"
+    created: "2023-11-13T15:14:41.854382+09:00"
     description: A Helm chart for deploying Schema Registry.
     digest: 7e2211d450bddbac9d499af9dff494473d6a59ba38ff16d6113e0b43669622c0
     home: https://github.com/hortonworks/registry
@@ -284,7 +313,7 @@ entries:
   sentry:
   - apiVersion: v2
     appVersion: 22.11.0
-    created: "2023-11-11T00:53:33.533985+09:00"
+    created: "2023-11-13T15:14:41.873643+09:00"
     dependencies:
     - condition: sourcemaps.enabled
       name: memcached
@@ -330,7 +359,7 @@ entries:
     version: 17.10.1
   skywalking-helm:
   - apiVersion: v2
-    created: "2023-11-11T00:53:33.539818+09:00"
+    created: "2023-11-13T15:14:41.878193+09:00"
     dependencies:
     - condition: elasticsearch.enabled
       name: elasticsearch
@@ -360,7 +389,7 @@ entries:
   sourcegraph:
   - apiVersion: v2
     appVersion: 3.29.0
-    created: "2023-11-11T00:53:33.54047+09:00"
+    created: "2023-11-13T15:14:41.878749+09:00"
     description: A Helm chart for deploying SourceGraph.
     digest: e5a5a5c430b1e03b75b8fb8b099aa50cde1a5685c7e9533748bc2a1195ca090e
     home: https://about.sourcegraph.com/
@@ -379,7 +408,7 @@ entries:
   temporal:
   - apiVersion: v2
     appVersion: 1.20.2
-    created: "2023-11-11T00:53:33.547149+09:00"
+    created: "2023-11-13T15:14:41.885118+09:00"
     dependencies:
     - condition: cassandra.enabled
       name: cassandra
@@ -425,7 +454,7 @@ entries:
         - name: support
           url: https://community.tyk.io/
     apiVersion: v2
-    created: "2023-11-11T00:53:33.549268+09:00"
+    created: "2023-11-13T15:14:41.886902+09:00"
     dependencies:
     - name: tyk-gateway
       repository: file://../components/tyk-gateway
@@ -458,4 +487,4 @@ entries:
     urls:
     - tyk-oss-1.1.0.tgz
     version: 1.1.0
-generated: "2023-11-11T00:53:33.50049+09:00"
+generated: "2023-11-13T15:14:41.840297+09:00"
