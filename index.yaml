@@ -38,7 +38,7 @@ entries:
           url: https://github.com/Apicurio/apicurio-registry-content-sync-operator
     apiVersion: v2
     appVersion: 2.3.1
-    created: "2024-03-18T10:06:01.070284+09:00"
+    created: "2024-05-07T12:45:53.913852+09:00"
     description: Install and configure Apicurio Registry in Kubernetes.
     digest: d6a57b326d097c22fc9fa903c00935f9b657a7d0f0b0dc1b3b668a6d7f923315
     home: https://github.com/eshepelyuk/apicurio-registry-helm
@@ -111,7 +111,7 @@ entries:
           url: https://artifacthub.github.io/hub/screenshots/screenshot6.jpg
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-03-18T10:06:01.072761+09:00"
+    created: "2024-05-07T12:45:53.916462+09:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -158,7 +158,7 @@ entries:
   boundary:
   - apiVersion: v2
     appVersion: 0.7.3
-    created: "2024-03-18T10:06:01.073526+09:00"
+    created: "2024-05-07T12:45:53.91709+09:00"
     description: A Helm chart for deploying Boundary.
     digest: c700a1b64246a6db2f30b35bdb7024d2e035ee1e078e55444790c4adf5891dc2
     home: https://boundaryproject.io/
@@ -177,7 +177,7 @@ entries:
   istio-operator:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2024-03-18T10:06:01.074419+09:00"
+    created: "2024-05-07T12:45:53.917832+09:00"
     description: Helm chart for deploying Istio operator
     digest: c2e088e16a0bac28893b0aecd34cd048ead3bd0a04996312016ac3e84d0f158d
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -193,7 +193,7 @@ entries:
   kubeclarity:
   - apiVersion: v2
     appVersion: v2.13.0
-    created: "2024-03-18T10:06:01.078356+09:00"
+    created: "2024-05-07T12:45:53.922286+09:00"
     dependencies:
     - alias: kubeclarity-postgresql
       condition: kubeclarity-postgresql.enabled
@@ -222,7 +222,7 @@ entries:
   nexus-repository-manager:
   - apiVersion: v2
     appVersion: 3.64.0
-    created: "2024-03-18T10:06:01.079208+09:00"
+    created: "2024-05-07T12:45:53.923428+09:00"
     deprecated: true
     description: DEPRECATED Sonatype Nexus Repository Manager - Universal Binary repository
     digest: 388a8245fcda726adebf0222e7fd17ff9a791feec625b2e6f93fd6cacf0df8f5
@@ -249,7 +249,7 @@ entries:
   opendistro-es:
   - apiVersion: v1
     appVersion: 1.13.3
-    created: "2024-03-18T10:06:01.080376+09:00"
+    created: "2024-05-07T12:45:53.924922+09:00"
     description: Open Distro for Elasticsearch
     digest: f95fa7a3b8e8d39ddab5d9e7bd7526ce6ddc4101e5d6a2b5c36b0c794912ffdc
     kubeVersion: ^1.10.0-0
@@ -267,7 +267,7 @@ entries:
   operator:
   - apiVersion: v2
     appVersion: v5.0.14
-    created: "2024-03-18T10:06:01.081695+09:00"
+    created: "2024-05-07T12:45:53.926488+09:00"
     description: A Helm chart for MinIO Operator
     digest: e626296f82fa271771f038995b453d873bfa40014df47145644428f692897958
     home: https://min.io
@@ -289,7 +289,7 @@ entries:
   rundeck:
   - apiVersion: v1
     appVersion: 3.2.7
-    created: "2024-03-18T10:06:01.082418+09:00"
+    created: "2024-05-07T12:45:53.927353+09:00"
     deprecated: true
     description: DEPRECATED A Rundeck chart for Kubernetes
     digest: 2215bc14d5bc02833af9c859121b58d30141a5e121dcbd7dead8453fb3aa48d3
@@ -308,7 +308,7 @@ entries:
   schema-registry:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-03-18T10:06:01.083076+09:00"
+    created: "2024-05-07T12:45:53.928318+09:00"
     description: A Helm chart for deploying Schema Registry.
     digest: 7e2211d450bddbac9d499af9dff494473d6a59ba38ff16d6113e0b43669622c0
     home: https://github.com/hortonworks/registry
@@ -327,7 +327,7 @@ entries:
   sentry:
   - apiVersion: v2
     appVersion: 22.11.0
-    created: "2024-03-18T10:06:01.100313+09:00"
+    created: "2024-05-07T12:45:53.944733+09:00"
     dependencies:
     - condition: sourcemaps.enabled
       name: memcached
@@ -373,7 +373,7 @@ entries:
     version: 17.10.1
   skywalking-helm:
   - apiVersion: v2
-    created: "2024-03-18T10:06:01.104727+09:00"
+    created: "2024-05-07T12:45:53.949102+09:00"
     dependencies:
     - condition: elasticsearch.enabled
       name: elasticsearch
@@ -403,7 +403,7 @@ entries:
   sourcegraph:
   - apiVersion: v2
     appVersion: 3.29.0
-    created: "2024-03-18T10:06:01.105623+09:00"
+    created: "2024-05-07T12:45:53.95034+09:00"
     description: A Helm chart for deploying SourceGraph.
     digest: e5a5a5c430b1e03b75b8fb8b099aa50cde1a5685c7e9533748bc2a1195ca090e
     home: https://about.sourcegraph.com/
@@ -422,7 +422,7 @@ entries:
   temporal:
   - apiVersion: v2
     appVersion: 1.20.2
-    created: "2024-03-18T10:06:01.111438+09:00"
+    created: "2024-05-07T12:45:53.957029+09:00"
     dependencies:
     - condition: cassandra.enabled
       name: cassandra
@@ -459,47 +459,4 @@ entries:
     urls:
     - temporal-0.22.0.tgz
     version: 0.22.0
-  tyk-oss:
-  - annotations:
-      artifacthub.io/category: networking
-      artifacthub.io/links: |
-        - name: docs
-          url: https://tyk.io/docs/
-        - name: support
-          url: https://community.tyk.io/
-    apiVersion: v2
-    created: "2024-03-18T10:06:01.113672+09:00"
-    dependencies:
-    - name: tyk-gateway
-      repository: file://../components/tyk-gateway
-      version: 1.2.0
-    - condition: global.components.pump
-      name: tyk-pump
-      repository: file://../components/tyk-pump
-      version: 1.2.0
-    description: 'A Helm chart for deploying the Tyk Open Source stack. It includes
-      the Tyk Gateway, an open source Enterprise API Gateway, supporting REST, GraphQL,
-      TCP and gRPC protocols; and Tyk Pump, an analytics purger that moves the data
-      generated by your Tyk gateways to any back-end. '
-    digest: 85c990a787215cbf620db56d52df84062c3ebe37cbed776f7f1669f5dc605beb
-    home: https://tyk.io/
-    icon: https://tyk.io/wp-content/uploads/2023/11/Tyk-helm-icon-02.png
-    keywords:
-    - api gateway
-    - reverse proxy
-    - api management
-    - ingress
-    - ingress controller
-    - open source gateway
-    - edge gateway
-    - tyk
-    - tyk gateway
-    - tyk open source
-    name: tyk-oss
-    sources:
-    - https://github.com/TykTechnologies/tyk-charts/tree/main/tyk-oss
-    type: application
-    urls:
-    - tyk-oss-1.2.0.tgz
-    version: 1.2.0
-generated: "2024-03-18T10:06:01.069336+09:00"
+generated: "2024-05-07T12:45:53.912865+09:00"
