@@ -71,7 +71,7 @@ spec:
               value: {{ .Values.psql.database }}
             - name: CODEINTEL_PG_ALLOW_SINGLE_DB
               value: 'true'
-            - name: CODEINSIGHTS_PGDATASOURCE
+            - name: CODEINTEL_PGDATASOURCE
               value: postgres://$(CODEINTEL_PGUSER):$(CODEINTEL_PGPASSWORD)@$(CODEINTEL_PGHOST):$(CODEINTEL_PGPORT)/$(CODEINTEL_PGDATABASE)?statement_cache_mode=describe
             {{- end }}
             {{- with .Values.env }}
