@@ -104,6 +104,8 @@ env: []
 #   - name: VARIABLE
 #     value: my-value
 
+envFrom: []
+
 psql: {}
   # host: postgresdb.local
   # port: 5432

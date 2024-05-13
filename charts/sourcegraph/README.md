@@ -57,6 +57,7 @@ The following table lists the configurable parameters of the _SourceGraph_ chart
 | `tolerations`                      | Toleration labels for pod assignment.                                                                                            | `[]`                                |
 | `affinity`                         | Affinity settings for pod assignment.                                                                                            | `{}`                                |
 | `env`                              | Environment variables for the _sourcegraph_ and default init containers.                                                         | `[]`                                |
+| `envFrom`                          | Environment variables from secrets or configmaps for the _sourcegraph_ and default init containers.                                                         | `[]`                                |
 | `psql.host`                        | External _PostgreSQL_ host to use (if this is set the additional `psql` values need to be set)                                   | `nil`                               |
 | `psql.port`                        | External _PostgreSQL_ port                                                                                                       | `nil`                               |
 | `psql.database`                    | External _PostgreSQL_ database                                                                                                   | `nil`                               |
