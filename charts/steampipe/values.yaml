@@ -1,0 +1,275 @@
+# Default values for steampipe.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+---
+# -- Number of replicas
+replicaCount: 1
+
+# -- Image registry
+image:
+  repository: turbot/steampipe
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+# -- Registry secret names as an array
+imagePullSecrets: []
+
+# -- String to partially override steampipe.fullname template (will maintain the release name)
+nameOverride: ""
+
+# -- String to fully override steampipe.fullname template
+fullnameOverride: ""
+
+# -- Enable creation of ServiceAccount
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+  # Specifies if you don't want the kubelet to automatically mount
+  # a ServiceAccount's API credentials
+  automountServiceAccountToken: false
+
+# -- Pod annotations
+podAnnotations: {}
+
+# -- Deployment annotations
+deploymentAnnotations: {}
+
+# -- Privilege and access control settings for a Pod or Container
+podSecurityContext:
+  fsGroup: 9193
+  runAsGroup: 65534
+  runAsUser: 9193
+
+# -- Privilege and access control settings
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 9193
+
+# -- Command for Pod
+command: []
+#  - "steampipe"
+#  - "service"
+#  - "start"
+#  - "--foreground"
+#  - "--show-password"
+#  - "--database-password=1234"
+
+# -- Arguments for Pod
+args:
+  - "--foreground"
+  - "--show-password"
+
+# -- Environment variables to configure application
+env:
+  - name: STEAMPIPE_LOG_LEVEL
+    value: "TRACE"
+
+# -- Variables from file
+envFrom: []
+
+# -- Configure liveness
+# Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes
+livenessProbe: {}
+#  httpGet:
+#    path: '/health/live'
+#    port: http
+#  initialDelaySeconds: 0
+#  timeoutSeconds: 5
+
+# -- Configure readinessProbe
+# Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes
+readinessProbe: {}
+#  httpGet:
+#    path: '/health/ready'
+#    port: http
+#  initialDelaySeconds: 10
+#  timeoutSeconds: 1
+
+# -- Configure startupProbe
+# Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes
+startupProbe: {}
+#  httpGet:
+#    path: '/health'
+#    port: http
+#  initialDelaySeconds: 15
+#  timeoutSeconds: 1
+#  failureThreshold: 60
+#  periodSeconds: 5
+
+# -- Configure service for Steampipe
+service:
+  type: ClusterIP
+  annotations: {}
+  #  service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+  #  external-dns.alpha.kubernetes.io/hostname:
+  port: 9193
+  listen: "network"
+
+# -- The resources limits and requested
+resources:
+  {}
+  #  We usually recommend not to specify default resources and to leave this as a conscious
+  #  choice for the user. This also increases chances charts run on environments with little
+  #  resources, such as Minikube. If you do want to specify resources, uncomment the following
+  #  lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  #  limits:
+  #    cpu: 100m
+  #    memory: 128Mi
+  #  requests:
+  #    cpu: 100m
+  #    memory: 128Mi
+
+# -- Node labels for pod assignment
+nodeSelector: {}
+
+# -- Tolerations for pod assignment
+tolerations: []
+
+# -- Affinity for pod assignment
+affinity: {}
+
+# -- Reference volumes
+extraVolumes: []
+#  - name: openshift-connection
+#    configMap:
+#      name: openshift-connection
+#  - name: openshift-kubeconfig
+#    secret:
+#      secretName: openshift-kubeconfig
+#  - name: azure-connection
+#    secret:
+#      secretName: azure-connection
+
+# -- Mount extra volumes
+extraVolumeMount: []
+#  - name: openshift-connection
+#    mountPath: "/home/steampipe/.steampipe/config/openshift.spc"
+#    subPath: openshift.spc
+#    readOnly: true
+#  - name: openshift-kubeconfig
+#    mountPath: "/home/steampipe/.kube/config"
+#    subPath: config
+#    readOnly: true
+#  - name: azure-connection
+#    mountPath: "/home/steampipe/.steampipe/config/azure.spc"
+#    readOnly: true
+#    subPath: azure.spc
+
+# -- Extra configuration for Steampipe
+extraConfig:
+  configMaps:
+    enabled: false
+    config:
+      - name: openshift-connection
+        type: Opaque
+        data:
+          openshift.spc: |
+            connection "openshift" {
+              plugin      = "openshift"
+              config_path = "~/.kube/config"
+            }
+
+  secrets:
+    enabled: false
+    config:
+      - name: azure-connection
+        type: Opaque
+        data:
+          azure.spc: |
+            connection "azure" {
+              plugin          = "azure"
+              environment     = "AZUREPUBLICCLOUD"
+              tenant_id       = "00000000-0000-0000-0000-000000000000"
+              subscription_id = "00000000-0000-0000-0000-000000000000"
+              client_id       = "00000000-0000-0000-0000-000000000000"
+              client_secret   = "~dummy@3password"
+            }
+      - name: openshift-kubeconfig
+        type: Opaque
+        data:
+          config: |
+            current-context: federal-context
+            apiVersion: v1
+            clusters:
+            - cluster:
+                certificate-authority: path/to/my/cafile
+                server: https://horse.org:4443
+              name: horse-cluster
+            contexts:
+            - context:
+                cluster: horse-cluster
+                namespace: chisel-ns
+                user: green-user
+              name: federal-context
+            kind: Config
+            users:
+            - name: green-user
+              user:
+                client-certificate: path/to/my/client/cert
+                client-key: path/to/my/client/key
+
+# -- Configure initContainers
+initContainer:
+  image:
+    repository: turbot/steampipe
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: ""
+
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 9193
+
+  # -- Configure Steampipe plugins
+  # Ref: https://hub.steampipe.io/plugins
+  plugins: []
+  # - "azure"
+  # - "azuread"
+  # - "openshift"
+  # - "terraform"
+
+  # -- The resources limits and requested
+  resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: "1500m"
+  #   memory: 2048Mi
+  # requests:
+  #   cpu: 1
+  #   memory: 256Mi
+
+  extraInitVolumeMount: []
+
+# -- Extra containers to add to the pod
+extraContainers: []
+
+# -- Extra Kubernetes manifests to deploy
+extraObjects: []
+# - apiVersion: batch/v1
+#   kind: CronJob
+#   metadata:
+#     name: hello
+#   spec:
+#     schedule: "* * * * *"
+#     jobTemplate:
+#       spec:
+#         template:
+#           spec:
+#             containers:
+#             - name: hello
+#               image: busybox:1.28
+#               imagePullPolicy: IfNotPresent
+#               command:
+#               - /bin/sh
+#               - -c
+#               - date; echo Hello from the Kubernetes cluster
+#             restartPolicy: OnFailure

@@ -1,0 +1,17 @@
+{{- if .Values.initContainer.plugins }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "steampipe.fullname" . }}-scripts
+  labels:
+    {{- include "steampipe.labels" . | nindent 4 }}
+data:
+  init.sh: |-
+    set -e
+{{- with .Values.initContainer.plugins }}
+    echo "Steampipe - Install Plugins"
+    {{- range $key, $value := . }}
+    steampipe plugin install {{ $value }}
+    {{- end }}
+{{- end }}
+{{- end }}
