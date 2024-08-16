@@ -14,4 +14,3 @@ data:
     powerpipe mod install {{ $value }}
     {{- end }}
 {{- end }}
-{{- end }}
