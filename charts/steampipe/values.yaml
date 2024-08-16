@@ -25,16 +25,14 @@ podAnnotations: {}
 
 podLabels: {}
 
-podSecurityContext: {}
-  # fsGroup: 1000
+podSecurityContext:
+  fsGroup: 9193
+  runAsGroup: 65534
+  runAsUser: 9193
 
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 9193
 
 priorityClassName: ""
 
