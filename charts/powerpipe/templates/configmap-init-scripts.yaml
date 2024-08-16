@@ -9,7 +9,7 @@ data:
   init.sh: |-
     set -e
 {{- with .Values.initContainer.mods }}
-    echo "powerpipe - Install Mods"
+    echo "Powerpipe - Install Mods"
     {{- range $key, $value := . }}
     powerpipe mod install {{ $value }}
     {{- end }}
