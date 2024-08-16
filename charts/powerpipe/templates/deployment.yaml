@@ -39,10 +39,6 @@ spec:
               mountPath: /home/powerpipe/.powerpipe/config
             - name: dashboard
               mountPath: /home/powerpipe/.powerpipe/dashboard
-            - name: internal
-              mountPath: /home/powerpipe/.powerpipe/internal
-            - name: logs
-              mountPath: /home/powerpipe/.powerpipe/logs
             - name: workspace
               mountPath: /workspace
           {{- with .Values.extraInitVolumeMount }}
@@ -123,10 +119,6 @@ spec:
               mountPath: /home/powerpipe/.powerpipe/config
             - name: dashboard
               mountPath: /home/powerpipe/.powerpipe/dashboard
-            - name: internal
-              mountPath: /home/powerpipe/.powerpipe/internal
-            - name: logs
-              mountPath: /home/powerpipe/.powerpipe/logs
             - name: workspace
               mountPath: /workspace
           {{- end }}
@@ -163,10 +155,6 @@ spec:
         - name: config
           emptyDir: {}
         - name: dashboard
-          emptyDir: {}
-        - name: internal
-          emptyDir: {}
-        - name: logs
           emptyDir: {}
         - name: workspace
           emptyDir: {}

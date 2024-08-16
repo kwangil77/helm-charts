@@ -60,9 +60,7 @@ command: []
 args: []
 
 # -- Environment variables to configure application
-env:
-  - name: POWERPIPE_LOG_LEVEL
-    value: "TRACE"
+env: {}
 
 # -- Variables from file
 envFrom: []
