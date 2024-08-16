@@ -38,7 +38,7 @@ entries:
           url: https://github.com/Apicurio/apicurio-registry-content-sync-operator
     apiVersion: v2
     appVersion: 2.3.1
-    created: "2024-08-16T17:59:36.424701+09:00"
+    created: "2024-08-16T20:38:13.60914+09:00"
     description: Install and configure Apicurio Registry in Kubernetes.
     digest: d6a57b326d097c22fc9fa903c00935f9b657a7d0f0b0dc1b3b668a6d7f923315
     home: https://github.com/eshepelyuk/apicurio-registry-helm
@@ -111,7 +111,7 @@ entries:
           url: https://artifacthub.github.io/hub/screenshots/screenshot6.jpg
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-08-16T17:59:36.426748+09:00"
+    created: "2024-08-16T20:38:13.612126+09:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -158,7 +158,7 @@ entries:
   boundary:
   - apiVersion: v2
     appVersion: 0.7.3
-    created: "2024-08-16T17:59:36.427395+09:00"
+    created: "2024-08-16T20:38:13.612602+09:00"
     description: A Helm chart for deploying Boundary.
     digest: c700a1b64246a6db2f30b35bdb7024d2e035ee1e078e55444790c4adf5891dc2
     home: https://boundaryproject.io/
@@ -177,7 +177,7 @@ entries:
   istio-operator:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2024-08-16T17:59:36.428177+09:00"
+    created: "2024-08-16T20:38:13.613103+09:00"
     description: Helm chart for deploying Istio operator
     digest: c2e088e16a0bac28893b0aecd34cd048ead3bd0a04996312016ac3e84d0f158d
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -193,7 +193,7 @@ entries:
   kubeclarity:
   - apiVersion: v2
     appVersion: v2.13.0
-    created: "2024-08-16T17:59:36.432908+09:00"
+    created: "2024-08-16T20:38:13.617504+09:00"
     dependencies:
     - alias: kubeclarity-postgresql
       condition: kubeclarity-postgresql.enabled
@@ -222,7 +222,7 @@ entries:
   nexus-repository-manager:
   - apiVersion: v2
     appVersion: 3.64.0
-    created: "2024-08-16T17:59:36.43354+09:00"
+    created: "2024-08-16T20:38:13.61846+09:00"
     deprecated: true
     description: DEPRECATED Sonatype Nexus Repository Manager - Universal Binary repository
     digest: 388a8245fcda726adebf0222e7fd17ff9a791feec625b2e6f93fd6cacf0df8f5
@@ -249,7 +249,7 @@ entries:
   opendistro-es:
   - apiVersion: v1
     appVersion: 1.13.3
-    created: "2024-08-16T17:59:36.434542+09:00"
+    created: "2024-08-16T20:38:13.620506+09:00"
     description: Open Distro for Elasticsearch
     digest: f95fa7a3b8e8d39ddab5d9e7bd7526ce6ddc4101e5d6a2b5c36b0c794912ffdc
     kubeVersion: ^1.10.0-0
@@ -267,7 +267,7 @@ entries:
   operator:
   - apiVersion: v2
     appVersion: v5.0.15
-    created: "2024-08-16T17:59:36.435492+09:00"
+    created: "2024-08-16T20:38:13.621662+09:00"
     description: A Helm chart for MinIO Operator
     digest: c303059ffdbd2110b8a99adc1179601c499543051fef92b1d195640fb465fb43
     home: https://min.io
@@ -289,7 +289,7 @@ entries:
   rundeck:
   - apiVersion: v1
     appVersion: 3.2.7
-    created: "2024-08-16T17:59:36.436035+09:00"
+    created: "2024-08-16T20:38:13.622337+09:00"
     deprecated: true
     description: DEPRECATED A Rundeck chart for Kubernetes
     digest: 2215bc14d5bc02833af9c859121b58d30141a5e121dcbd7dead8453fb3aa48d3
@@ -308,7 +308,7 @@ entries:
   schema-registry:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-08-16T17:59:36.436646+09:00"
+    created: "2024-08-16T20:38:13.622977+09:00"
     description: A Helm chart for deploying Schema Registry.
     digest: 7e2211d450bddbac9d499af9dff494473d6a59ba38ff16d6113e0b43669622c0
     home: https://github.com/hortonworks/registry
@@ -327,7 +327,7 @@ entries:
   sentry:
   - apiVersion: v2
     appVersion: 22.11.0
-    created: "2024-08-16T17:59:36.453879+09:00"
+    created: "2024-08-16T20:38:13.640276+09:00"
     dependencies:
     - condition: sourcemaps.enabled
       name: memcached
@@ -374,7 +374,7 @@ entries:
   sourcegraph:
   - apiVersion: v2
     appVersion: 3.29.0
-    created: "2024-08-16T17:59:36.454511+09:00"
+    created: "2024-08-16T20:38:13.641829+09:00"
     description: A Helm chart for deploying SourceGraph.
     digest: 70b84be1299ac9a9ac9fdd6232500aac7f7c5bdc3717bf00231f03ac6d6d896f
     home: https://about.sourcegraph.com/
@@ -390,29 +390,10 @@ entries:
     urls:
     - sourcegraph-0.0.1.tgz
     version: 0.0.1
-  steampipe:
-  - apiVersion: v2
-    appVersion: 0.22.0
-    created: "2024-08-16T17:59:36.465918+09:00"
-    description: A Helm chart for deploying steampipe.
-    digest: eff346f90a487a918c8ce5f86ca4e22d3f2cc9df09bdd48f09186e0545c50afe
-    home: https://steampipe.io/
-    keywords:
-    - steampipe
-    maintainers:
-    - email: kwangil77@hotmail.com
-      name: kwangil77
-    name: steampipe
-    sources:
-    - https://github.com/turbot/steampipe/
-    type: application
-    urls:
-    - steampipe-0.0.1.tgz
-    version: 0.0.1
   temporal:
   - apiVersion: v2
     appVersion: 1.20.2
-    created: "2024-08-16T17:59:36.471633+09:00"
+    created: "2024-08-16T20:38:13.648601+09:00"
     dependencies:
     - condition: cassandra.enabled
       name: cassandra
@@ -449,4 +430,4 @@ entries:
     urls:
     - temporal-0.22.0.tgz
     version: 0.22.0
-generated: "2024-08-16T17:59:36.423881+09:00"
+generated: "2024-08-16T20:38:13.608184+09:00"
