@@ -39,22 +39,20 @@ securityContext: {}
 priorityClassName: ""
 
 livenessProbe:
-  httpGet:
-    path: /healthz
-    port: http
-  initialDelaySeconds: 60
-  periodSeconds: 30
-  failureThreshold: 10
-  timeoutSeconds: 1
+  tcpSocket:
+    port: 9193
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  failureThreshold: 6
+  timeoutSeconds: 5
 
 readinessProbe:
-  httpGet:
-    path: /healthz
-    port: http
-  initialDelaySeconds: 60
-  periodSeconds: 30
-  failureThreshold: 10
-  timeoutSeconds: 1
+  tcpSocket:
+    port: 9193
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  failureThreshold: 6
+  timeoutSeconds: 5
 
 service:
   type: ClusterIP
