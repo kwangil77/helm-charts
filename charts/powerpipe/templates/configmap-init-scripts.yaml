@@ -1,4 +1,4 @@
-{{- .Values.initContainer.mods }}
+{{- if .Values.initContainer.mods }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -13,4 +13,5 @@ data:
     {{- range $key, $value := . }}
     powerpipe mod install {{ $value }}
     {{- end }}
+{{- end }}
 {{- end }}
