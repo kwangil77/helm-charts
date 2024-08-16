@@ -1,0 +1,20 @@
+apiVersion: v2
+name: powerpipe
+description: A Helm chart for Kubernetes to deploy Powerpipe
+type: application
+version: 0.0.1
+appVersion: 0.4.2
+home: https://github.com/kwangil77/helm-charts
+sources:
+  - https://github.com/turbot/powerpipe
+maintainers:
+  - name: kwangil77
+    email: kwangil77@hotmail.com
+    url: https://github.com/kwangil77
+keywords:
+  - powerpipe
+dependencies:
+  - name: oauth2-proxy
+    version: 7.7.*
+    repository: https://oauth2-proxy.github.io/manifests/
+    condition: oauth2Proxy.enabled
