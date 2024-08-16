@@ -170,7 +170,7 @@ initContainer:
 
   securityContext:
     runAsNonRoot: true
-    runAsUser: 9193
+    runAsUser: 9033
 
   # -- Configure powerpipe mods
   # Ref: https://hub.powerpipe.io/mods
