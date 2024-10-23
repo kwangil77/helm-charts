@@ -11,7 +11,7 @@ data:
 {{- with .Values.initContainer.mods }}
     echo "Powerpipe - Install Mods"
     {{- range $key, $value := . }}
-    powerpipe mod install {{ $value }}
+    powerpipe mod install --force {{ $value }}
     {{- end }}
 {{- end }}
 {{- end }}
